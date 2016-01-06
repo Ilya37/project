@@ -57,32 +57,33 @@ public class LinkList {
     }
 
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         LinkList linkList = new LinkList();
-        linkList.add(1);
-        linkList.add(11);
-        linkList.add(-1);
-        linkList.add(133);
-        linkList.add(5565);
-        linkList.read();
+        for (int i = 1; i <= 10000; i++) {
+            linkList.add(i);
+        }
+
+        long endTime   = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println("total time is " + totalTime);
+
+        //linkList.read();
 
         System.out.println("Deleting ");
 
         linkList.delete(-1);
-        linkList.read();
+        //linkList.read();
         System.out.println("Adding again");
-        linkList.add(2, 1000);
+        //linkList.add(2, 1000);
         System.out.println("Now reading");
-        linkList.read();
+        //linkList.read();
     }
 
     // this is element locked version of linkList
     private void delete(Node head, int data) {
 
         while (head != null) {
-            // here the node is having left , right elements . So I am assuming
-            // if I lock this
-            // head object , then the left and right pointers will also be
-            // locked.
+
             synchronized (head) {
                 if (head.data == data) {
                     Node rightTemp, leftTemp;
@@ -119,10 +120,6 @@ public class LinkList {
             head = head.left;
             i++;
         }
-
-        // here the node is having left , right elements . So I am assuming if I
-        // lock this
-        // head object , then the left and right pointers will also be locked.
         synchronized (head) {
             Node tempRight, tempLeft, temp;
             tempLeft = head;
