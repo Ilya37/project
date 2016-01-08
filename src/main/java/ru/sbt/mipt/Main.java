@@ -1,5 +1,4 @@
 package ru.sbt.mipt;
-
 /**
  * Created by Ilya on 22.11.2015.
  */
@@ -8,5 +7,8 @@ public class Main {
         System.out.println("Hello world!");
         System.out.println("Hello Ilya");
         System.out.println("hello");
+
+
+
     }
 }

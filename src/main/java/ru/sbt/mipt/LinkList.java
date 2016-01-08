@@ -1,5 +1,4 @@
 package ru.sbt.mipt;
-
 /**
  * Created by Ilya on 22.11.2015.
  */
@@ -13,6 +12,7 @@ public class LinkList {
         head = null;
         size = 0;
     }
+
 
     // adding new element at last
     public void add(int data) {
