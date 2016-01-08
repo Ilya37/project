@@ -54,6 +54,9 @@ public class LinkList {
             right = null;
             size++;
         }
+
+        public void lock() {
+        }
     }
 
     public static void main(String[] args) {
