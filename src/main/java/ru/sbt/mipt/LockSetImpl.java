@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * Created by Ilya on 09.01.2016.
  */
-public class LockImpl implements Lock {
+public class LockSetImpl implements LockSet {
         private AtomicBoolean state = new AtomicBoolean(false);
 
         public void lock() {
