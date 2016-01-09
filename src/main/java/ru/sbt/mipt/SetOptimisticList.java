@@ -1,15 +1,16 @@
 package ru.sbt.mipt;
 
+import java.util.List;
+
 /**
  * Created by Ilya on 06.01.2016.
  */
 public interface SetOptimisticList<T> {
-        boolean add(T x);
-        boolean remove(T x);
+        public boolean add(T e);
 
-        boolean remove(Object item);
+        public boolean remove(T e);
 
-        boolean contains(Object item);
+        public boolean contains(T e);
 
-        boolean contains(T x);
+        public int size();
 }
