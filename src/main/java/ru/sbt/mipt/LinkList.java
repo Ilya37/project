@@ -57,7 +57,29 @@ public class LinkList {
 
         public void lock() {
         }
+
+        public void unlock() {
+        }
     }
+
+    public class NodeOptimisticList {
+        int data;
+        Node left, right;
+
+        NodeOptimisticList(int data) {
+            this.data = data;
+            left = null;
+            right = null;
+            size++;
+        }
+
+        public void lock() {
+        }
+
+        public void unlock() {
+        }
+    }
+
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
@@ -66,7 +88,7 @@ public class LinkList {
             linkList.add(i);
         }
 
-        long endTime   = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         System.out.println("total time is " + totalTime);
 

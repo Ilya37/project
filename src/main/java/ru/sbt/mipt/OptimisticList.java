@@ -3,7 +3,8 @@ package ru.sbt.mipt;
 /**
  * Created by Ilya on 06.01.2016.
  */
-public class OptimisticList implements Set {
+public class OptimisticList<T> implements SetOptimisticList {
+    @Override
     public boolean add(T item) {
         int key = item.hashCode();
         while (true) {
@@ -30,4 +31,21 @@ public class OptimisticList implements Set {
                 }
             }
         }
+
+    @Override
+    public boolean remove(T item) {
+        return false;
+    }
+
+    @Override
+    public boolean contains(T item) {
+        return false;
+    }
+
+    public boolean validate()
+
+    @Override
+    public boolean contains(Object x) {
+        return false;
+    }
 }
