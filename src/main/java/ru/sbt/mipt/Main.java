@@ -6,9 +6,11 @@ import java.io.IOException;
  * Created by Ilya on 22.11.2015.
  */
 public class Main {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws Exception {
         long startTime = System.currentTimeMillis();
-        OptimisticListDefinition<Integer> lists = new OptimisticListDefinition<Integer>();
+        OptimisticListImplementation<Integer> lists = new OptimisticListImplementation<Integer>();
+
+        lists.addToList();
 
 
         //CoarseGrainedSynch list = new CoarseGrainedSynch();

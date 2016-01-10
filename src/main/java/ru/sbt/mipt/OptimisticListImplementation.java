@@ -17,12 +17,11 @@ public class OptimisticListImplementation<I> implements SetOptimisticList {
     }
 
     public void addToList() throws Exception {
-        OptimisticListImplementation<Integer> integers = new OptimisticListDefinition<>();
+        OptimisticListImplementation<Integer> integers = new OptimisticListImplementation<Integer>();
         for (int i = 0; i < 5; i++) {
             integers.add(i);
         }
     }
-
 
     @Override
     public boolean add(Object e) {
