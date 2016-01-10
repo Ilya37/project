@@ -11,6 +11,10 @@ public class NodeNew<T> {
     public T value;
     public int size;
 
+    public boolean tryLock() {
+        return false;
+    }
+
     public class Node {
         int data;
         Node left, right;
