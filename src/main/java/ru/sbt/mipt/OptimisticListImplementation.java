@@ -19,12 +19,17 @@ public class OptimisticListImplementation<I> implements SetOptimisticList {
     public void addToList() throws Exception {
         OptimisticListImplementation<Integer> integers = new OptimisticListImplementation<Integer>();
         for (int i = 0; i < 5; i++) {
-            integers.add(i);
+            integers.add2(i);
         }
     }
 
     @Override
-    public boolean add(Object e) {
+     public boolean add(Object e) {
+        while(true) {
+            if (tail.tryLock()) {
+                break;
+            }
+        }
         NodeNew pred = tail;
         try {
             NodeNew newNode = new NodeNew(e);
@@ -35,6 +40,17 @@ public class OptimisticListImplementation<I> implements SetOptimisticList {
         } finally {
             pred.unlock();
         }
+    }
+
+    public void add2(Object e) {
+        NodeNew pred = tail;
+        NodeNew newNode;
+        while (pred != null) {
+            newNode = pred.next;
+        }
+        NodeNew temp1 = new NodeNew(e);
+        pred = temp1;
+        newNode = tail;
     }
 
     @Override
@@ -81,10 +97,7 @@ public class OptimisticListImplementation<I> implements SetOptimisticList {
                     curr = curr.next;
                     curr.lock();
                 }
-                if (curr.value.equals(e)) {
-                    return true;
-                }
-                return false;
+                return curr.value.equals(e);
             } finally {
                 curr.unlock();
             }

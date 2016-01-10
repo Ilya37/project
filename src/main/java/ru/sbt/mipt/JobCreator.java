@@ -19,7 +19,7 @@ public class JobCreator {
             int additive = 0;
             if (rest > 0) {
                 System.out.println("REST > 0. rest = " + rest);
-                additive = 1;
+                additive = 64;
             }
             final int finalAdditive = additive;
             threads.add(new ExecThread(new Runnable() {
@@ -28,8 +28,8 @@ public class JobCreator {
                     System.out.println("threadelemamount = " + threadElemAmount);
                     System.out.println(threadElemAmount + finalAdditive);
                     for (int j = 0; j < (threadElemAmount + finalAdditive); j++) {
-                    //make a job
-                       list.add2(1,j);
+                        //make a job
+                        list.add2(1,j);
                     }
 
                 }
@@ -51,5 +51,5 @@ public class JobCreator {
         for (Thread thread : threads) {
             thread.join();
         }
-        }
+    }
 }

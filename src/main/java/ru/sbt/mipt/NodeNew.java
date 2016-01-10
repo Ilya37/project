@@ -9,9 +9,25 @@ public class NodeNew<T> {
     public NodeNew next;
     public Lock lock;
     public T value;
+    public int size;
+
+    public class Node {
+        int data;
+        Node left, right;
+        int size;
+
+        Node(int data) {
+            this.data = data;
+            left = null;
+            right = null;
+            size++;
+        }
+    }
+
 
     public NodeNew(T value) {
         this.value = value;
+        size++;
     }
 
     public void lock() {
@@ -21,4 +37,5 @@ public class NodeNew<T> {
     public void unlock() {
         lock.unlock();
     }
+
 }

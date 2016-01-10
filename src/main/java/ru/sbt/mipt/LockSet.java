@@ -6,4 +6,5 @@ package ru.sbt.mipt;
 public interface LockSet {
     public void lock();
     public void unlock();
+    public boolean tryLock();
 }
