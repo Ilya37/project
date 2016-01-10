@@ -96,7 +96,6 @@ public class LinkList {
     private void delete(Node head, int data) {
 
         while (head != null) {
-
             synchronized (head) {
                 if (head.data == data) {
                     Node rightTemp, leftTemp;
@@ -118,8 +117,8 @@ public class LinkList {
 
     public void add2(int index, int data) {
         if (index > -1 && index < size) {
-            System.out.println(index);
-            System.out.println(size);
+     //       System.out.println(index);
+     //          System.out.println(size);
             add1(head, index, data);
         } else if (index == size) {
             add(head, data);
@@ -135,14 +134,16 @@ public class LinkList {
             head = head.left;
             i++;
         }
+        //System.out.println("eeeeee");
         synchronized (head) {
-            Node tempRight, tempLeft, temp;
-            tempLeft = head;
-            tempRight = head.right;
-            temp = new Node(data);
-            tempRight.left = temp;
-            temp.right = tempLeft;
-            temp.left = tempLeft;
+            add(head,data);
+//            Node tempRight, tempLeft, temp;
+//            tempLeft = head;
+//            tempRight = head.right;
+//            temp = new Node(data);
+//            tempRight.left = temp;
+//            temp.right = tempLeft;
+//            temp.left = tempLeft;
         }
 
     }

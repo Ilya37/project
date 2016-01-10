@@ -8,6 +8,9 @@ public class Main {
         long startTime = System.currentTimeMillis();
         LinkList list = new LinkList();
         list.add(1);
+        list.add(2);
+        //list.add(0);
+        list.add2(2,100);
     //    OptimisticListImplementation<Integer> lists = new OptimisticListImplementation<Integer>();
     //    lists.add(1);
 
@@ -18,12 +21,12 @@ public class Main {
         //CoarseGrainedSynch list = new CoarseGrainedSynch();
 
         //JobCreator.createAddThreads(list,4,100000,10);
-        JobCreator.addTest(list, 1, 50000);
+        JobCreator.addTest(list,1, 100000);
         long endTime   = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         System.out.println("total time is " + totalTime);
         list.size();
-        //linkList.read();
+     //   list.read();
 
     }
 }
