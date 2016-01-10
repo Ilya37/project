@@ -1,12 +1,10 @@
 package ru.sbt.mipt;
 
 
-import java.util.concurrent.locks.Lock;
-
 /**
  * Created by Ilya on 09.01.2016.
  */
-public class OptimisticListImplementation implements SetOptimisticList {
+public class OptimisticListImplementation<I> implements SetOptimisticList {
     private NodeNew head;
     private NodeNew tail;
     private int size;
@@ -16,6 +14,13 @@ public class OptimisticListImplementation implements SetOptimisticList {
         head = root;
         tail = root;
         size = 0;
+    }
+
+    public void addToList() throws Exception {
+        OptimisticListImplementation<Integer> integers = new OptimisticListDefinition<>();
+        for (int i = 0; i < 5; i++) {
+            integers.add(i);
+        }
     }
 
 

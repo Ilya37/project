@@ -1,13 +1,14 @@
 package ru.sbt.mipt;
 
 import java.io.IOException;
+
 /**
  * Created by Ilya on 22.11.2015.
  */
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         long startTime = System.currentTimeMillis();
-        OptimisticListDefinition lists = new OptimisticListDefinition();
+        OptimisticListDefinition<Integer> lists = new OptimisticListDefinition<Integer>();
 
 
         //CoarseGrainedSynch list = new CoarseGrainedSynch();
