@@ -29,7 +29,7 @@ public class JobCreator {
                     System.out.println(threadElemAmount + finalAdditive);
                     for (int j = 0; j < (threadElemAmount + finalAdditive); j++) {
                     //make a job
-                       list.add2(0,j);
+                       list.add2(1,j);
                     }
 
                 }
