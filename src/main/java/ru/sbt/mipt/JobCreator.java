@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Created by alex on 09.01.16.
  */
 public class JobCreator {
 
-    public static List<Thread> createAddThreads(final LinkList list, int numberOfThreads, int numberOfElements, final int randomRange) {
+    public static List<Thread> createAddThreads(final LinkList list, int numberOfThreads, int numberOfElements) {
 
         List<Thread> threads = new ArrayList<Thread>();
         final int threadElemAmount = numberOfElements / numberOfThreads;
@@ -29,7 +28,8 @@ public class JobCreator {
                     System.out.println("threadelemamount = " + threadElemAmount);
                     System.out.println(threadElemAmount + finalAdditive);
                     for (int j = 0; j < (threadElemAmount + finalAdditive); j++) {
-                        list.add2(j,j);
+                    //make a job
+                       list.add2(0,j);
                     }
 
                 }
@@ -39,10 +39,10 @@ public class JobCreator {
         return threads;
     }
 
-    public static void addTest(final LinkList list, int numberOfThreads, int numberOfElements, final int randomRange) throws IOException, InterruptedException {
+    public static void addTest(final LinkList list, int numberOfThreads, int numberOfElements) throws IOException, InterruptedException {
 
-        List<Thread> threads = createAddThreads(list, numberOfThreads, numberOfElements, randomRange);
-        System.out.println("Configuration: threads = " + numberOfThreads + " elements = " + numberOfElements + " random Range = " + randomRange);
+        List<Thread> threads = createAddThreads(list, numberOfThreads, numberOfElements);
+        System.out.println("Configuration: threads = " + numberOfThreads + " elements = " + numberOfElements );
 
         System.out.println("Start adding test with " + numberOfThreads + " threads");
         for (Thread thread : threads) {

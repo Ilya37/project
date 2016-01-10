@@ -1,26 +1,28 @@
 package ru.sbt.mipt;
 
-import java.io.IOException;
-
 /**
  * Created by Ilya on 22.11.2015.
  */
 public class Main {
     public static void main(String[] args) throws Exception {
         long startTime = System.currentTimeMillis();
-        OptimisticListImplementation<Integer> lists = new OptimisticListImplementation<Integer>();
+        LinkList list = new LinkList();
+        list.add(1);
+    //    OptimisticListImplementation<Integer> lists = new OptimisticListImplementation<Integer>();
+    //    lists.add(1);
 
-        lists.addToList();
+        //lists.size();
+        //OptimisticListDefinition lists = new OptimisticListDefinition();
 
 
         //CoarseGrainedSynch list = new CoarseGrainedSynch();
 
-        //JobCreator.createAddThreads(linkList,1,100000,10);
-       //JobCreator.addTest(lists, 1, 50000, 10);
+        //JobCreator.createAddThreads(list,4,100000,10);
+        JobCreator.addTest(list, 1, 50000);
         long endTime   = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         System.out.println("total time is " + totalTime);
-        //lists.size();
+        list.size();
         //linkList.read();
 
     }

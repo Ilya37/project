@@ -33,6 +33,15 @@ public class LinkList {
         temp1.right = node;
     }
 
+    public int size() {
+        size = 0;
+        while (head != null) {
+            head = head.left;
+            size++;
+        }
+        System.out.println("size is " + size);
+        return size;
+    }
     public void read() {
         read(head);
     }
@@ -57,38 +66,17 @@ public class LinkList {
 
         public void lock() {
         }
-
-        public void unlock() {
-        }
     }
-
-    public class NodeOptimisticList {
-        int data;
-        Node left, right;
-
-        NodeOptimisticList(int data) {
-            this.data = data;
-            left = null;
-            right = null;
-            size++;
-        }
-
-        public void lock() {
-        }
-
-        public void unlock() {
-        }
-    }
-
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
         LinkList linkList = new LinkList();
+        /*
         for (int i = 1; i <= 10000; i++) {
             linkList.add(i);
         }
-
-        long endTime = System.currentTimeMillis();
+        */
+        long endTime   = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         System.out.println("total time is " + totalTime);
 
@@ -128,9 +116,11 @@ public class LinkList {
         size--;
     }
 
-    public void add(int index, int data) {
+    public void add2(int index, int data) {
         if (index > -1 && index < size) {
-            add(head, index, data);
+            System.out.println(index);
+            System.out.println(size);
+            add1(head, index, data);
         } else if (index == size) {
             add(head, data);
 
@@ -139,7 +129,7 @@ public class LinkList {
         }
     }
 
-    public void add(Node head, int index, int data) {
+    public void add1(Node head, int index, int data) {
         int i = 0;
         while (i <= index) {
             head = head.left;
